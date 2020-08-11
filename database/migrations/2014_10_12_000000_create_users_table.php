@@ -21,6 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            // default role when register is employee (1)
+            $table->unsignedBigInteger('role_id')->default(1);
+            $table->foreign('role_id')->references('id')->on('roles');
+
         });
     }
 
