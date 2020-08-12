@@ -5,6 +5,9 @@
 نظام يمكن الموظفين من إضافة مقترحاتهم
 ويمكن للإدارة التحكم بجميع المقترحات من إغلاقها أو تعديلها أو عرضها
 
+## ERD
+
+<p align="center"><img srchttps://previews.dropbox.com/p/thumb/AA4J6Yr79YfyJxZTx0OS3lmvpXy-uNEW_aTrY93R6C3IZ8HotWtamzlQkjPzOS76UH_x3t8NzQrhfR2KqaLFvNWUVLLrWrozEYHWsa1cwuDL0eqGFbHtL9HlHGRpteyuf3EM7hLBK0gyBthP7BzSonXmekjH52Ce_gcN8gSDPEwvgRD0ieVWpmH_mvE__tSiluPGVQIedJ1nBvAHoKxvoCKpNDSmzS8OD_Dm4iZI2RMxqXhdBQDGhAZQYNyz9IE2whGPve8-aorh3Y96w-neahqqfhMLHEBryxOO3lDyo7aT0zbvjNNiHDBfzC3XqqCzetvV47gA_B0svUE5Iab6jb-cU-jTypHdUZOF_aK3S3vLHA/p.png?fv_content=true&size_mode=5"></p>
 
 ## الخصائص
 إمكانية تسجيل جديد لموظف أو تسجيل دخول لموظف موجود
