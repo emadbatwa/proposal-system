@@ -24,4 +24,6 @@ Route::group([
     'middleware' => 'auth',
 ], function () {
     Route::resource('proposal', 'ProposalController');
+    Route::get('proposal/change-status/{id}', 'ProposalController@changeStatus');
+
 });

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Attachment;
 use App\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Input\Input;
 
 class ProposalController extends Controller
@@ -47,18 +50,13 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = $request->validate([
+        $request->validate([
             'title' => 'required',
             'content' => 'required',
             'attachments.*' => 'mimes:doc,pdf,docx,zip,jpg,png,jpeg,gif,ppt|max:500000',
             'attachments' => 'max:4',
         ]);
 
-        if ($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput(Input::all());
-        }
 
         if ($request->hasfile('attachments')) {
             foreach ($request->file('attachments') as $file) {
@@ -100,7 +98,8 @@ class ProposalController extends Controller
     {
         // if this proposal belong to login user or login user is admin then can show proposal , else return error message
         if (Auth::id() == $proposal->user_id || Auth::user()->role_id == 2) {
-            return view('proposal.show');
+            $attachments = Attachment::where('proposal_id', '=', $proposal->id)->get();
+            return view('proposal.show', compact('proposal', 'attachments'));
         } else {
             return redirect()->back()->with('message', 'غير مصرح لك بالدخول هنا');
 
@@ -116,7 +115,7 @@ class ProposalController extends Controller
     public
     function edit(Proposal $proposal)
     {
-        //
+        return view('proposal.edit', compact('proposal'));
     }
 
     /**
@@ -129,7 +128,17 @@ class ProposalController extends Controller
     public
     function update(Request $request, Proposal $proposal)
     {
-        //
+        $validator = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        $proposal->update($request->all());
+
+        Session::flash('message', 'تم تعديل المقترح بنجاح');
+        return redirect()->to('proposal/' . $proposal->id);
+
+
     }
 
     /**
@@ -139,17 +148,46 @@ class ProposalController extends Controller
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
-    public
-    function destroy(Proposal $proposal)
+    public function destroy(Proposal $proposal)
     {
+        $proposal_id = $proposal->id;
+
         if (Auth::user()->role_id == 2) {
+
+            $attachments = Attachment::where('proposal_id', '=', $proposal_id)->get();
+            foreach ($attachments as $attachment) {
+                $delete = File::delete('attachment/' . $attachment->path);
+            }
+
             $proposal->delete();
-            return redirect()->back()->with('message', 'تم حذف المقترح بنجاح');
 
-
+            Session::flash('message', 'تم حذف المقترح بنجاح');
+            return redirect()->route('proposal.index');
         } else {
             return redirect()->back()->with('message', 'غير مصرح لك بالدخول هنا');
 
         }
+    }
+
+    public function changeStatus($id)
+    {
+        if (Auth::user()->role_id = !2) {
+            return redirect()->back()->with('message', 'غير مصرح لك بالدخول هنا');
+
+        }
+        $proposal = Proposal::find($id);
+        if ($proposal->is_closed == 1) {
+            $proposal->is_closed = 0;
+            $message = 'تم فتح المقترح بنجاح';
+
+        } else {
+            $proposal->is_closed = 1;
+            $message = 'تم إغلاق المقترح بنجاح';
+
+        }
+        $proposal->save();
+        return redirect()->back()->with('message', $message);
+
+
     }
 }

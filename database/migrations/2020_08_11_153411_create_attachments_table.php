@@ -19,7 +19,7 @@ class CreateAttachmentsTable extends Migration
 
             // default role when register is employee (1)
             $table->unsignedBigInteger('proposal_id');
-            $table->foreign('proposal_id')->references('id')->on('proposals');
+            $table->foreign('proposal_id')->references('id')->on('proposals')->onDelete('cascade');
 
             $table->timestamps();
 

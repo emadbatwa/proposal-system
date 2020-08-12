@@ -102,6 +102,8 @@
         {!! $proposals->links() !!}
 
     @else
-        <h3>لا توجد مقترحات حتى الآن </h3>
+        <div class="text-center">
+            <h3>لا توجد مقترحات حتى الآن </h3>
+        </div>
     @endif
 @endsection

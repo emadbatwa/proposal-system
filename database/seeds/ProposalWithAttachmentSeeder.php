@@ -21,23 +21,34 @@ class ProposalWithAttachmentSeeder extends Seeder
 علي الجانب الآخر نشجب ونستنكر هؤلاء الرجال المفتونون بنشوة اللحظة الهائمون في رغباتهم فلا يدركون ما يعقبها من الألم والأسي المحتم، واللوم كذلك يشمل هؤلاء الذين أخفقوا في واجباتهم نتيجة لضعف إرادتهم فيتساوي مع هؤلاء الذين يتجنبون وينأون عن تحمل الكدح والألم .
 	       ',
             'is_closed' => 0,
-            'user_id' => 2
+            'user_id' => 2,
+            'created_at' => now(),
+            'updated_at' => now()
 
         ]);
 
         $attachment1_1 = DB::table('attachments')->insert([
-            'path' => '8765446.png',
-            'proposal_id' => $proposal_1
+            'path' => '1597218349.jpeg',
+            'proposal_id' => $proposal_1,
+            'created_at' => now(),
+            'updated_at' => now()
+
         ]);
 
         $attachment2_1 = DB::table('attachments')->insert([
             'path' => '2759484.pdf',
-            'proposal_id' => $proposal_1
+            'proposal_id' => $proposal_1,
+            'created_at' => now(),
+            'updated_at' => now()
+
         ]);
 
         $attachment3_1 = DB::table('attachments')->insert([
             'path' => '7612526.gif',
-            'proposal_id' => $proposal_1
+            'proposal_id' => $proposal_1,
+            'created_at' => now(),
+            'updated_at' => now()
+
         ]);
 
         factory(App\Proposal::class, 100)->create();
