@@ -5,6 +5,28 @@
 نظام يمكن الموظفين من إضافة مقترحاتهم
 ويمكن للإدارة التحكم بجميع المقترحات من إغلاقها أو تعديلها أو عرضها
 
+## ديمو فيديو
+https://youtu.be/v6pDC5TGI14
+
+
+
+
+## تجربة النظام مع بيانات الدخول
+
+http://proposal.i-emad.xyz/
+
+الإدارة
+
+admin@example.com
+
+123456
+
+موظف للتجربة
+
+employee@example.com
+
+123456
+
 ## ERD
 
 <p align="center"><img src ="https://www.up-00.com/i/00188/36vmt8jzwt0e.png"></p>
@@ -50,18 +72,6 @@ php artisan serve
 ```
 بعدها سيتم تشغيل المشروع 
 
-## بيانات الدخول
 
-الإدارة
-
-admin@example.com
-
-123456
-
-موظف للتجربة
-
-employee@example.com
-
-123456
 
 ## تمنياتي لنا ولكم بالتوفيق ، عماد بتوا
