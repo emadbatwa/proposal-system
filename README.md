@@ -50,10 +50,15 @@ php artisan serve
 ## بيانات الدخول
 
 الإدارة
+
 admin@example.com
+
 123456
+
 موظف للتجربة
+
 employee@example.com
+
 123456
 
 ## تمنياتي لنا ولكم بالتوفيق ، عماد بتوا
