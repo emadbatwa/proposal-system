@@ -42,4 +42,9 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function proposals()
+    {
+        return $this->hasMany(Proposal::class);
+    }
+
 }

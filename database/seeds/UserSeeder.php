@@ -13,12 +13,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'سعد عبدالله سعيد',
-            'email' => 'employee@example.com',
-            'password' => Hash::make('123456'),
-            'role_id' => 1,
-        ]);
 
         DB::table('users')->insert([
             'name' => 'أحمد محمد عبدالله',
@@ -26,5 +20,15 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456'),
             'role_id' => 2,
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'سعد عبدالله سعيد',
+            'email' => 'employee@example.com',
+            'password' => Hash::make('123456'),
+            'role_id' => 1,
+        ]);
+
+        factory(App\User::class, 18)->create();
+
     }
 }

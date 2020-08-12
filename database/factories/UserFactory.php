@@ -21,8 +21,6 @@ use Illuminate\Support\Facades\Hash;
 */
 
 $factory->define(User::class, function (Faker $faker) {
-    $faker = Factory::create('ar_SA');
-
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
