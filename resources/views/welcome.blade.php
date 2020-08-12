@@ -95,6 +95,8 @@
         {{--        <div class="title m-b-md">--}}
         {{--            بوابة إدارة المقترحات--}}
         {{--        </div>--}}
+        <br>
+        <br>
         <section class="jumbotron text-center">
             <div class="container">
                 <h1 class="jumbotron-heading">بوابة إدارة المقترحات </h1>
