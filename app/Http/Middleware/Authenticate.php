@@ -16,6 +16,10 @@ class Authenticate extends Middleware
     {
         if (! $request->expectsJson()) {
             return route('login');
+
+//            return redirect()->back()->with('message', 'غير مصرح لك بالدخول هنا');
+
+
         }
     }
 }
