@@ -28,7 +28,7 @@ class ProposalWithAttachmentSeeder extends Seeder
         ]);
 
         $attachment1_1 = DB::table('attachments')->insert([
-            'path' => '1597218349.jpeg',
+            'path' => '1597218349.jpg',
             'proposal_id' => $proposal_1,
             'created_at' => now(),
             'updated_at' => now()
@@ -44,7 +44,7 @@ class ProposalWithAttachmentSeeder extends Seeder
         ]);
 
         $attachment3_1 = DB::table('attachments')->insert([
-            'path' => '7612526.gif',
+            'path' => '7612526.png',
             'proposal_id' => $proposal_1,
             'created_at' => now(),
             'updated_at' => now()

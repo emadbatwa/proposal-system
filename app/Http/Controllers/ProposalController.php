@@ -56,7 +56,7 @@ class ProposalController extends Controller
             'attachments.*' => 'mimes:doc,pdf,docx,zip,jpg,png,jpeg,gif,ppt|max:500000',
             'attachments' => 'max:4',
         ]);
-
+        $names = null;
 
         if ($request->hasfile('attachments')) {
             foreach ($request->file('attachments') as $file) {
